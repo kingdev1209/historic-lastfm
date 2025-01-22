@@ -1,0 +1,61 @@
+{
+  "name": "historic-lastfm",
+  "license": "MIT",
+  "author": {
+    "name": "Gerrit Alex",
+    "url": "https://github.com/ljosberinn"
+  },
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@sentry/integrations": "6.19.6",
+    "@sentry/node": "6.19.6",
+    "@sentry/react": "6.19.6",
+    "@sentry/webpack-plugin": "1.18.8",
+    "dayjs": "1.11.1",
+    "dotenv-webpack": "7.1.0",
+    "next": "12.1.5",
+    "npm-run-all": "4.1.5",
+    "nprogress": "0.2.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0"
+  },
+  "devDependencies": {
+    "@sentry/types": "6.19.6",
+    "@types/node": "17.0.26",
+    "@types/react": "18.0.6",
+    "eslint": "8.14.0",
+    "eslint-config-galex": "4.1.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.4.0",
+    "prettier": "2.6.2",
+    "typescript": "4.6.3",
+    "yarn-deduplicate": "5.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint:code": "eslint src && eslint pages",
+    "lint:code:fix": "eslint src --fix && eslint pages --fix && prettier --write src && prettier --write pages",
+    "lint:types": "tsc --noEmit",
+    "install:clean": "rm -rf node_modules && rm yarn.lock && yarn",
+    "postinstall": "yarn-deduplicate -l"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write",
+    "*.js": "eslint --fix"
+  }
+}
